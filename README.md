@@ -76,15 +76,15 @@ This project demonstrates practical SRE practices using Docker, Terraform, Node.
    git clone https://github.com/fr1gn/sre_finalproject.git
    cd sre_finalproject/terraform
 
-Deploy infrastructure:
-```bash
-terraform init
-terraform apply -auto-approve
+3. Deploy infrastructure:
+   ```bash
+   terraform init
+   terraform apply -auto-approve
 
-Run health check tool:
-```bash
-cd ../tools
-./health_checker.sh
+4. Run health check tool:
+   ```bash
+   cd ../tools
+   ./health_checker.sh
 
 📈 Benchmark Summary
 | Concurrency | Requests | Avg Time | RPS  |
