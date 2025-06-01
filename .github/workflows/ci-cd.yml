@@ -25,10 +25,3 @@ jobs:
 
       - name: Run tests
         run: echo "No tests yet"  # Replace with: npm test
-
-      - name: Build Docker image
-        run: docker build -t my-node-app .
-        working-directory: ./terraform/docker/app
-
-      - name: Run container locally (optional, for self-hosting)
-        run: docker run -d -p 3000:3000 my-node-app
