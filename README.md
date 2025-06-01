@@ -38,7 +38,6 @@ sre-final/
    cd terraform
    terraform init
    terraform apply -auto-approve
-```
 
 3. The Node.js app will be available at http://localhost:3000
 
