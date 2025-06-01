@@ -1,81 +1,99 @@
-# SRE Final Project – Node.js Monitoring & Infrastructure
+# 📦 SRE Final Project
+
+This project demonstrates practical SRE practices using Docker, Terraform, Node.js, and various monitoring and benchmarking tools. It is divided into 6 tasks with a clear division of responsibilities between two team members.
+
+---
 
 ## 👥 Team Members
-- Tairlan – Terraform, Infrastructure-as-Code, Docker deployment
-- Alimkhan – Prometheus/Grafana, Monitoring, CI/CD
+
+- **Tairlan** – Task 2, Task 3, Task 6  
+- **Alimkhan** – Task 1, Task 4, Task 5
 
 ---
 
-## 🚀 Project Description
+## ✅ Tasks Overview
 
-This project is a Node.js web application running in Docker containers, monitored with Prometheus and Grafana. The infrastructure is deployed using Terraform, and CI/CD is handled through GitHub Actions.
+### 🔹 Task 1: Application Reliability Project  
+> _By Alimkhan_
 
----
-
-## 🏗️ Project Structure
-
-
-
-sre-final/
-├── .github/workflows/ci-cd.yml # GitHub Actions for CI/CD
-├── app/ #first task
-├── terraform/
-│ ├── main.tf # Terraform infra definition
-│ └── docker/
-│ └── app/
-│ ├── Dockerfile
-│ ├── app.js
-│ └── package.json
-
+- Defined SLIs/SLOs  
+- Integrated Prometheus + Grafana  
+- Simulated failure scenarios  
+- Created incident and postmortem reports
 
 ---
 
-## ⚙️ How to Run Locally with Terraform
+### 🔹 Task 2: Infrastructure as Code (IaC)  
+> _By Tairlan_
 
-1. Make sure **Docker** and **Terraform** are installed.
-2. Go to the Terraform directory:
+- Used **Terraform** to provision Docker containers  
+- Set up Node.js app and MongoDB  
+- Automated container networking and port mapping
+
+---
+
+### 🔹 Task 3: Version Control  
+> _By Tairlan_
+
+- Initialized Git repository  
+- Uploaded full project to **GitHub**  
+- Added `.gitignore` and GitHub Actions workflow
+
+---
+
+### 🔹 Task 4: CI/CD Integration  
+> _By Alimkhan_
+
+- Implemented GitHub Actions for CI  
+- Dockerized build process  
+- Enabled auto-build on push to `main`
+
+---
+
+### 🔹 Task 5: Capacity Planning  
+> _By Alimkhan_
+
+- Used **ApacheBench (ab)** for load testing  
+- Simulated traffic with various concurrency levels  
+- Analyzed request throughput and latency
+
+---
+
+### 🔹 Task 6: SRE Tool Development  
+> _By Tairlan_
+
+- Created a Bash tool `health_checker.sh`  
+- Monitors Docker containers and detects unhealthy/exited states  
+- Logs alerts and timestamps
+
+---
+
+## 🚀 How to Run the Project
+
+1. Install Docker and Terraform
+2. Clone the repo:
    ```bash
-   cd terraform
-   terraform init
-   terraform apply -auto-approve
+   git clone https://github.com/fr1gn/sre_finalproject.git
+   cd sre_finalproject/terraform
 
-3. The Node.js app will be available at http://localhost:3000
+Deploy infrastructure:
+```bash
+terraform init
+terraform apply -auto-approve
 
-4. MongoDB will be available on port 27017
+Run health check tool:
+```bash
+cd ../tools
+./health_checker.sh
 
-CI/CD Pipeline
-
-The CI/CD pipeline is defined in .github/workflows/ci-cd.yml and performs:
-
-    Automatic build of the Docker image on each push to the main branch
-
-    Verifies successful Docker build
-
-    Runs tests (optional for future development)
-
-
-Monitoring Tools
-
-    Prometheus is configured to collect metrics from the application.
-
-    Grafana is used to visualize metrics and set up dashboards.
+📈 Benchmark Summary
+| Concurrency | Requests | Avg Time | RPS  |
+| ----------- | -------- | -------- | ---- |
+| 5           | 500      | 2.9 ms   | 1713 |
+| 10          | 1000     | 5.5 ms   | 1811 |
+| 20          | 2000     | 10.7 ms  | 1853 |
+| 50          | 5000     | 17.6 ms  | 2826 |
 
 
-Optionally, alerts can be added using Grafana alert rules or custom metrics via a /metrics endpoint in the Node.js app.
-
-
-Technologies Used
-
-    Node.js – Application server
-
-    Docker – Containerization
-
-    Terraform – Infrastructure as Code
-
-    GitHub Actions – CI/CD Automation
-
-    Prometheus – Monitoring
-
-    Grafana – Visualization and alerting
 
 
