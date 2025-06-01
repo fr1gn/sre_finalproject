@@ -1,0 +1,12 @@
+groups:
+  - name: InstantAlert
+    rules:
+      - alert: SingleRequestTriggered
+        expr: http_requests_total > 0
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: "At least one request detected"
+          description: "A single HTTP request has triggered the alert."
+
